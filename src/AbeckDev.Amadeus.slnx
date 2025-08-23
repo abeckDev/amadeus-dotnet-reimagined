@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AbeckDev.Amadeus.Test/AbeckDev.Amadeus.Test.csproj" />
+  <Project Path="AbeckDev.Amadeus/AbeckDev.Amadeus.csproj" />
+</Solution>

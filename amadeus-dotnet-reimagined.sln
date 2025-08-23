@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbeckDev.Amadeus.Test", "src\AbeckDev.Amadeus.Test\AbeckDev.Amadeus.Test.csproj", "{267E911F-6CC0-7951-06A8-64BAB2E3E4D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbeckDev.Amadeus", "src\AbeckDev.Amadeus\AbeckDev.Amadeus.csproj", "{6E54260D-114C-8F27-87BB-2226B24CB748}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{267E911F-6CC0-7951-06A8-64BAB2E3E4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{267E911F-6CC0-7951-06A8-64BAB2E3E4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{267E911F-6CC0-7951-06A8-64BAB2E3E4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{267E911F-6CC0-7951-06A8-64BAB2E3E4D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E54260D-114C-8F27-87BB-2226B24CB748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E54260D-114C-8F27-87BB-2226B24CB748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E54260D-114C-8F27-87BB-2226B24CB748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E54260D-114C-8F27-87BB-2226B24CB748}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{267E911F-6CC0-7951-06A8-64BAB2E3E4D6} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{6E54260D-114C-8F27-87BB-2226B24CB748} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E6289D9-F7B5-4E08-AE68-5292279ACB08}
+	EndGlobalSection
+EndGlobal
