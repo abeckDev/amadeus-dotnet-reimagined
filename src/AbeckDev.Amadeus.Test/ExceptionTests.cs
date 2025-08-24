@@ -131,7 +131,7 @@ namespace AbeckDev.Amadeus.Test
             Assert.Contains("Service Unavailable", exception.Message);
             Assert.Matches("Request failed with status 503 \\(Service Unavailable\\)\\.", exception.Message);
         }
-        
+
         [Fact]
         public void ProductAuthenticationException_InitializesProperties()
         {

@@ -46,7 +46,7 @@ public class PipelineContextTests
     {
         // Arrange
         var context = new PipelineContext();
-        
+
         // Act
         context.Attempt = 3;
 
@@ -86,7 +86,7 @@ public class PipelineContextTests
     {
         // Arrange
         var context = new PipelineContext();
-        
+
         // Act
         context.Items.Add("string", "value");
         context.Items.Add("int", 42);
