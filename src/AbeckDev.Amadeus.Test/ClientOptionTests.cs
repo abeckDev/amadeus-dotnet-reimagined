@@ -93,7 +93,7 @@ public class ClientOptionTests
     {
         public async Task<HttpResponseMessage> ProcessAsync(PipelineContext context, HttpRequestMessage request, PipelineCall next, CancellationToken cancellationToken)
         {
-            //Do nothing and just return the plain object again
+            // Pass through to next policy without modification
             var response = await next(context, request, cancellationToken).ConfigureAwait(false);
             return response;
 
