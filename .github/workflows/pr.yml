@@ -63,7 +63,7 @@ jobs:
         path: ./coverage-report/SummaryGithub.md
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
+      uses: codecov/codecov-action@v5
       with:
         directory: ./test-results
         fail_ci_if_error: false
