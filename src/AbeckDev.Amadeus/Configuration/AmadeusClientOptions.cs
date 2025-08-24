@@ -69,8 +69,8 @@ public sealed class AmadeusClientOptions
     /// <summary>
     /// Gets the list of additional HTTP pipeline policies.
     /// </summary>
-    /// <value>An internal list of custom policies added via <see cref="AddPolicy"/>.</value>
-    internal List<IHttpPipelinePolicy> AdditionalPolicies { get; } = new();
+    /// <value>An list of custom policies added via <see cref="AddPolicy"/>.</value>
+    public List<IHttpPipelinePolicy> AdditionalPolicies { get; } = new();
 
     /// <summary>
     /// Initializes a new instance of the <see cref="AmadeusClientOptions"/> class.
