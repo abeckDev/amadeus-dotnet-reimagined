@@ -10,6 +10,7 @@ using AbeckDev.Amadeus.Exceptions;
 using AbeckDev.Amadeus.Pipeline;
 using AbeckDev.Amadeus.Pipeline.Policies;
 using System.Collections.Generic;
+using AbeckDev.Amadeus.Api.Airlines;
 
 
 namespace AbeckDev.Amadeus
@@ -19,14 +20,8 @@ namespace AbeckDev.Amadeus
     /// </summary>
     public interface IAmadeusClient
     {
-        /// <summary>
-        /// Gets demo data asynchronously. This is a placeholder method for the current preview version.
-        /// </summary>
-        /// <param name="demoId">The unique identifier for the demo data to retrieve.</param>
-        /// <param name="cancellationToken">A cancellation token to cancel the operation.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        /// <exception cref="ArgumentException">Thrown when <paramref name="demoId"/> is null or whitespace.</exception>
-        Task GetDemoAsync(string demoId, CancellationToken cancellationToken = default);
+        Task<HttpResponseMessage> SendApiRequestAsync(HttpRequestMessage message, CancellationToken cancellationToken);
+
     }
 
     /// <summary>
@@ -44,6 +39,10 @@ namespace AbeckDev.Amadeus
         private readonly JsonSerializerOptions _json;
         private readonly bool _disposeTransport;
         private readonly HttpMessageHandler _transport;
+        public readonly AmadeusClientContext clientContext;
+
+        public Airlines airlines;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AmadeusClient"/> class.
@@ -83,36 +82,16 @@ namespace AbeckDev.Amadeus
             policies.AddRange(options.AdditionalPolicies);
 
             _pipeline = new HttpPipeline(policies, _transport);
+
+            clientContext = new AmadeusClientContext(_options);
+
+            airlines = new Airlines(this);
+
         }
 
-        /// <summary>
-        /// Gets demo data asynchronously. This is a placeholder method for the current preview version.
-        /// </summary>
-        /// <param name="demoId">The unique identifier for the demo data to retrieve.</param>
-        /// <param name="cancellationToken">A cancellation token to cancel the operation.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        /// <exception cref="ArgumentException">Thrown when <paramref name="demoId"/> is null or whitespace.</exception>
-        /// <exception cref="AmadeusRequestException">Thrown when the API request fails.</exception>
-        /// <remarks>
-        /// This method demonstrates the HTTP pipeline in action. In the full version, this will be replaced
-        /// with actual Amadeus API endpoint methods.
-        /// </remarks>
-        public async Task GetDemoAsync(string demoId, CancellationToken cancellationToken = default)
+        public async Task<HttpResponseMessage> SendApiRequestAsync(HttpRequestMessage message, CancellationToken cancellationToken)
         {
-            if (string.IsNullOrWhiteSpace(demoId))
-                throw new ArgumentException("demoId must be provided.", nameof(demoId));
-
-            var uri = new Uri(_options.Endpoint, $"coolStuff/{demoId}");
-
-            using var request = new HttpRequestMessage(HttpMethod.Get, uri);
-            using var response = await _pipeline.SendAsync(request, cancellationToken).ConfigureAwait(false);
-
-            if (!response.IsSuccessStatusCode)
-                await ThrowRequestException(response, cancellationToken).ConfigureAwait(false);
-
-            var stream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-
-            //Return Stuff later
+            return await _pipeline.SendAsync(message, cancellationToken);
         }
 
         /// <summary>
