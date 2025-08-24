@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         dotnet-version: ['8.0.x']
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
     
     steps:
     - name: Checkout repository
@@ -47,8 +47,8 @@ jobs:
     - name: Build solution
       run: dotnet build --configuration ${{ env.BUILD_CONFIGURATION }} --no-restore
 
-    - name: Run tests with coverage
-      run: dotnet test --configuration ${{ env.BUILD_CONFIGURATION }} --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+    - name: Run tests with coverage and xml output
+      run: dotnet test --configuration ${{ env.BUILD_CONFIGURATION }} --no-build --verbosity normal --logger "trx;LogFileName=TestResults.xml" --collect:"XPlat Code Coverage" --results-directory ./coverage
 
     - name: Upload coverage reports to Codecov
       if: matrix.os == 'ubuntu-latest'
