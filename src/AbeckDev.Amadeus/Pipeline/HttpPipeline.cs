@@ -44,7 +44,7 @@ public sealed class HttpPipeline
     public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
         var ctx = new PipelineContext();
-        
+
         // Define the terminal policy that actually sends the HTTP request
         PipelineCall terminal = async (_, req, ct) =>
         {

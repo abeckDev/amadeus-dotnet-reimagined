@@ -180,5 +180,5 @@ public class ClientOptionTests
         Assert.False(retryOptions.RetryOnTimeouts);
     }
 
-    
+
 }
