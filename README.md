@@ -7,9 +7,9 @@ A modern, reimagined .NET SDK for the Amadeus Self-Service travel APIs. This pro
 This SDK aims to provide:
 - **Modern Architecture**: Built with .NET 8, leveraging the latest language features and patterns
 - **Pipeline-Based Design**: Extensible HTTP processing pipeline with pluggable policies
-- **Developer Experience**: Intuitive APIs, comprehensive documentation, and excellent tooling support
+- **Developer Experience**: Intuitive APIs, comprehensive documentation, and tooling support
 - **Enterprise Ready**: Robust error handling, retry policies, logging, and telemetry
-- **Dependency Injection**: First-class support for Microsoft.Extensions.DependencyInjection
+- **Dependency Injection**: Support for Microsoft.Extensions.DependencyInjection
 - **Performance**: Efficient HTTP handling with proper resource management
 
 ## 🚀 Quick Start
