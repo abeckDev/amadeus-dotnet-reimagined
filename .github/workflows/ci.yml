@@ -8,6 +8,12 @@ on:
   release:
     types: [ published ]
 
+permissions:
+  contents: read
+  issues: write
+  checks: write
+  pull-requests: write
+
 env:
   DOTNET_VERSION: '8.0.x'
   BUILD_CONFIGURATION: 'Release'
