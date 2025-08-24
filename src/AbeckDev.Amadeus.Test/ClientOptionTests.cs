@@ -132,10 +132,20 @@ public class ClientOptionTests
         // Arrange
         var options = new AmadeusClientOptions(_testEndpoint);
         var policy1 = new TestPipelinePolicy();
-        var policy2 = new AuthPolicy(new BearerTokenProvider(new HttpClient(),"","",""),null!);
+        using (var httpClient = new HttpClient())
+        {
+            var policy2 = new AuthPolicy(
+                new BearerTokenProvider(httpClient, "testClientId", "testClientSecret", "testTokenEndpoint"),
+                null!);
 
-        // Act
-        options.AddPolicy(policy1).AddPolicy(policy2);
+            // Act
+            options.AddPolicy(policy1).AddPolicy(policy2);
+
+            // Assert
+            Assert.Equal(2, options.AdditionalPolicies.Count);
+            Assert.Contains(policy1, options.AdditionalPolicies);
+            Assert.Contains(policy2, options.AdditionalPolicies);
+        }
 
         // Assert
         Assert.Equal(2, options.AdditionalPolicies.Count);
