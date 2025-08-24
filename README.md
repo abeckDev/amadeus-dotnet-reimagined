@@ -171,7 +171,7 @@ This project uses GitHub Actions for automated build, test, and deployment workf
   - Builds and tests across multiple .NET versions and OS platforms
   - Generates code coverage reports
   - Performs security analysis with CodeQL
-  - Creates and publishes NuGet packages
+  - Creates NuGet packages (does not publish yet)
   - Runs on push to main and pull requests
 
 - **Pull Request Validation** (`.github/workflows/pr.yml`)
@@ -181,14 +181,9 @@ This project uses GitHub Actions for automated build, test, and deployment workf
 
 ### Required Secrets
 
-To enable full CI/CD functionality, configure these repository secrets:
+To enable full CI/CD functionality, these repository secrets are available:
 
 - `CODECOV_TOKEN`: Token for uploading coverage reports to Codecov (optional)
-- `NUGET_API_KEY`: API key for publishing packages to NuGet.org (required for releases)
-
-### Badges
-
-Add these badges to display build and coverage status:
 
 ## 📋 Roadmap
 
