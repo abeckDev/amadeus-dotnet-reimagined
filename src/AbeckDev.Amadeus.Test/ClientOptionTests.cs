@@ -146,7 +146,6 @@ public class ClientOptionTests
             Assert.Contains(policy1, options.AdditionalPolicies);
             Assert.Contains(policy2, options.AdditionalPolicies);
         }
-
     }
 
     [Fact]
