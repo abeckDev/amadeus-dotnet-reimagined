@@ -1,4 +1,6 @@
 # Amadeus .NET SDK (Reimagined)
+[![CI/CD Pipeline](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml/badge.svg)](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined/branch/main/graph/badge.svg)](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined)
 
 A modern, reimagined .NET SDK for the Amadeus Self-Service travel APIs. This project is a complete reboot of the [amadeus4dev-examples/amadeus-dotnet](https://github.com/amadeus4dev-examples/amadeus-dotnet) library, designed with modern .NET practices and enhanced functionality.
 
@@ -187,11 +189,6 @@ To enable full CI/CD functionality, configure these repository secrets:
 ### Badges
 
 Add these badges to display build and coverage status:
-
-```markdown
-[![CI/CD Pipeline](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml/badge.svg)](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined/branch/main/graph/badge.svg)](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined)
-```
 
 ## 📋 Roadmap
 
