@@ -147,6 +147,52 @@ dotnet build
 dotnet test
 ```
 
+### Running Tests with Coverage
+
+```bash
+dotnet test --collect:"XPlat Code Coverage" --results-directory ./test-results
+```
+
+### Creating NuGet Package
+
+```bash
+dotnet pack src/AbeckDev.Amadeus/AbeckDev.Amadeus.csproj --configuration Release --include-symbols --include-source
+```
+
+## 🔄 CI/CD Pipeline
+
+This project uses GitHub Actions for automated build, test, and deployment workflows:
+
+### Workflows
+
+- **CI/CD Pipeline** (`.github/workflows/ci.yml`)
+  - Builds and tests across multiple .NET versions and OS platforms
+  - Generates code coverage reports
+  - Performs security analysis with CodeQL
+  - Creates and publishes NuGet packages
+  - Runs on push to main and pull requests
+
+- **Pull Request Validation** (`.github/workflows/pr.yml`)
+  - Validates builds and tests on pull requests
+  - Reports test coverage status directly in PR comments
+  - Ensures quality gates are met before merging
+
+### Required Secrets
+
+To enable full CI/CD functionality, configure these repository secrets:
+
+- `CODECOV_TOKEN`: Token for uploading coverage reports to Codecov (optional)
+- `NUGET_API_KEY`: API key for publishing packages to NuGet.org (required for releases)
+
+### Badges
+
+Add these badges to display build and coverage status:
+
+```markdown
+[![CI/CD Pipeline](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml/badge.svg)](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined/branch/main/graph/badge.svg)](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined)
+```
+
 ## 📋 Roadmap
 
 - [ ] Complete API endpoint implementations

@@ -5,6 +5,22 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    
+    <!-- Package Information -->
+    <PackageId>AbeckDev.Amadeus</PackageId>
+    <PackageVersion>0.1.0-preview</PackageVersion>
+    <Authors>abeckDev</Authors>
+    <Company>abeckDev</Company>
+    <Description>A modern, reimagined .NET SDK for the Amadeus Self-Service travel APIs. Built with .NET 8, featuring pipeline-based design, comprehensive logging, retry policies, and dependency injection support.</Description>
+    <PackageProjectUrl>https://github.com/abeckDev/amadeus-dotnet-reimagined</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/abeckDev/amadeus-dotnet-reimagined</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>amadeus;travel;api;sdk;dotnet;csharp;rest;http;pipeline</PackageTags>
+    <PackageReleaseNotes>Initial preview release focusing on foundational architecture with HTTP pipeline, authentication, retry policies, logging and telemetry.</PackageReleaseNotes>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +29,10 @@
     <Folder Include="Http\" />
     <Folder Include="Models\" />
     <Folder Include="Serialization\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
