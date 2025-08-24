@@ -8,6 +8,14 @@ using AbeckDev.Amadeus.Abstractions;
 
 namespace AbeckDev.Amadeus.Auth;
 
+/// <summary>
+/// A token provider implementation for OAuth 2.0 client credentials flow with token caching.
+/// </summary>
+/// <remarks>
+/// This implementation handles automatic token acquisition, caching, and refresh for the Amadeus API.
+/// It uses the OAuth 2.0 client credentials grant type and includes thread-safe token caching
+/// to avoid unnecessary token requests.
+/// </remarks>
 public sealed class BearerTokenProvider : ITokenProvider, IDisposable
 {
     private readonly HttpClient _httpClient;
@@ -19,6 +27,15 @@ public sealed class BearerTokenProvider : ITokenProvider, IDisposable
 
     private AccessToken _cachedToken;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BearerTokenProvider"/> class.
+    /// </summary>
+    /// <param name="httpClient">The HTTP client to use for token requests. The provider does not dispose this client.</param>
+    /// <param name="tokenEndpoint">The OAuth 2.0 token endpoint URL.</param>
+    /// <param name="clientId">The OAuth 2.0 client identifier.</param>
+    /// <param name="clientSecret">The OAuth 2.0 client secret.</param>
+    /// <param name="defaultScopes">Optional default scopes to request when no specific scopes are provided.</param>
+    /// <exception cref="ArgumentNullException">Thrown when any required parameter is <c>null</c>.</exception>
     public BearerTokenProvider(
         HttpClient httpClient,
         string tokenEndpoint,
@@ -33,6 +50,17 @@ public sealed class BearerTokenProvider : ITokenProvider, IDisposable
         _defaultScopes = defaultScopes ?? Array.Empty<string>();
     }
 
+    /// <summary>
+    /// Asynchronously retrieves an access token, using cached tokens when available and valid.
+    /// </summary>
+    /// <param name="context">The token request context containing the requested scopes.</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the operation.</param>
+    /// <returns>A <see cref="ValueTask{AccessToken}"/> representing the asynchronous operation that yields an access token.</returns>
+    /// <remarks>
+    /// This method implements thread-safe token caching with automatic refresh. If a cached token
+    /// exists and is not expired, it will be returned immediately. Otherwise, a new token will be
+    /// requested using the OAuth 2.0 client credentials flow.
+    /// </remarks>
     public async ValueTask<AccessToken> GetTokenAsync(TokenRequestContext context, CancellationToken cancellationToken = default)
     {
         // Fast path if token is still present and not expired
@@ -74,6 +102,13 @@ public sealed class BearerTokenProvider : ITokenProvider, IDisposable
         }
     }
 
+    /// <summary>
+    /// Releases all resources used by the <see cref="BearerTokenProvider"/>.
+    /// </summary>
+    /// <remarks>
+    /// This method disposes internal synchronization primitives but does not dispose
+    /// the HTTP client, which is assumed to be managed by the caller.
+    /// </remarks>
     public void Dispose()
     {
         _gate.Dispose();

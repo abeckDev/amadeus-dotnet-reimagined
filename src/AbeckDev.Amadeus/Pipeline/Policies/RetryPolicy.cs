@@ -7,13 +7,38 @@ using AbeckDev.Amadeus.Configuration;
 
 namespace AbeckDev.Amadeus.Pipeline.Policies;
 
+/// <summary>
+/// A pipeline policy that implements retry logic with exponential backoff for failed HTTP requests.
+/// </summary>
+/// <remarks>
+/// This policy automatically retries requests that fail due to server errors (5xx), timeouts,
+/// or network issues. It uses exponential backoff with jitter to avoid thundering herd problems.
+/// The retry behavior is fully configurable via <see cref="RetryOptions"/>.
+/// </remarks>
 public sealed class RetryPolicy : IHttpPipelinePolicy
 {
     private readonly RetryOptions _options;
     private readonly Random _rng = new();
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="RetryPolicy"/> class.
+    /// </summary>
+    /// <param name="options">The retry configuration options.</param>
     public RetryPolicy(RetryOptions options) => _options = options;
 
+    /// <summary>
+    /// Processes the HTTP request with automatic retry logic for transient failures.
+    /// </summary>
+    /// <param name="context">The pipeline context containing request metadata.</param>
+    /// <param name="request">The HTTP request message to process.</param>
+    /// <param name="next">A delegate to call the next policy in the pipeline chain.</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the operation.</param>
+    /// <returns>A task representing the asynchronous operation that yields an HTTP response message.</returns>
+    /// <remarks>
+    /// This method will retry the request up to the configured maximum attempts for transient failures
+    /// such as server errors, timeouts, and network issues. Each retry includes an exponentially
+    /// increasing delay with random jitter.
+    /// </remarks>
     public async Task<HttpResponseMessage> ProcessAsync(PipelineContext context, HttpRequestMessage request, PipelineCall next, CancellationToken cancellationToken)
     {
         // Clone logic: HttpRequestMessage is single-use if content is streamed.
