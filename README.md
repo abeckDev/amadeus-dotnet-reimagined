@@ -1,4 +1,6 @@
 # Amadeus .NET SDK (Reimagined)
+[![CI/CD Pipeline](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml/badge.svg)](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined/branch/main/graph/badge.svg)](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined)
 
 A modern, reimagined .NET SDK for the Amadeus Self-Service travel APIs. This project is a complete reboot of the [amadeus4dev-examples/amadeus-dotnet](https://github.com/amadeus4dev-examples/amadeus-dotnet) library, designed with modern .NET practices and enhanced functionality.
 
@@ -146,6 +148,42 @@ dotnet build
 ```bash
 dotnet test
 ```
+
+### Running Tests with Coverage
+
+```bash
+dotnet test --collect:"XPlat Code Coverage" --results-directory ./test-results
+```
+
+### Creating NuGet Package
+
+```bash
+dotnet pack src/AbeckDev.Amadeus/AbeckDev.Amadeus.csproj --configuration Release --include-symbols --include-source
+```
+
+## 🔄 CI/CD Pipeline
+
+This project uses GitHub Actions for automated build, test, and deployment workflows:
+
+### Workflows
+
+- **CI/CD Pipeline** (`.github/workflows/ci.yml`)
+  - Builds and tests across multiple .NET versions and OS platforms
+  - Generates code coverage reports
+  - Performs security analysis with CodeQL
+  - Creates NuGet packages (does not publish yet)
+  - Runs on push to main and pull requests
+
+- **Pull Request Validation** (`.github/workflows/pr.yml`)
+  - Validates builds and tests on pull requests
+  - Reports test coverage status directly in PR comments
+  - Ensures quality gates are met before merging
+
+### Required Secrets
+
+To enable full CI/CD functionality, these repository secrets are available:
+
+- `CODECOV_TOKEN`: Token for uploading coverage reports to Codecov (optional)
 
 ## 📋 Roadmap
 
