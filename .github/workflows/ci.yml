@@ -35,7 +35,7 @@ jobs:
         fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
 
@@ -93,7 +93,7 @@ jobs:
         languages: csharp
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
@@ -118,7 +118,7 @@ jobs:
         fetch-depth: 0
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
@@ -155,7 +155,7 @@ jobs:
   #      path: ./packages
  #
  #   - name: Setup .NET
- #     uses: actions/setup-dotnet@v4
+ #     uses: actions/setup-dotnet@v5
  #     with:
  #       dotnet-version: ${{ env.DOTNET_VERSION }}
 
