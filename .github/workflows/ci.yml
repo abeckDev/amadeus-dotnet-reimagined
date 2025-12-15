@@ -132,7 +132,7 @@ jobs:
       run: dotnet pack src/AbeckDev.Amadeus/AbeckDev.Amadeus.csproj --configuration ${{ env.BUILD_CONFIGURATION }} --no-build --include-symbols --include-source -p:PackageVersion=0.1.0-preview.${{ github.run_number }}
 
     - name: Upload package artifacts
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: nuget-packages
         path: |
