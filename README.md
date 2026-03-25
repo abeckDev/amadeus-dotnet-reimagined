@@ -5,7 +5,7 @@
 >
 > The Amadeus Self-Service APIs have been retired. As a result, this SDK is no longer functional and this repository has been sunset. No further development, bug fixes, or support will be provided.
 >
-> Thank you to everyone who contributed to and used this project.
+> Thank you to everyone who used this project.
 
 ~~[![CI/CD Pipeline](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml/badge.svg)](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml)~~
 ~~[![codecov](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined/branch/main/graph/badge.svg)](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined)~~
