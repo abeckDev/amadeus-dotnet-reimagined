@@ -1,8 +1,18 @@
 # Amadeus .NET SDK (Reimagined)
-[![CI/CD Pipeline](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml/badge.svg)](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined/branch/main/graph/badge.svg)](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined)
+
+> [!WARNING]
+> **⚠️ This repository is archived and no longer maintained.**
+>
+> The Amadeus Self-Service APIs have been retired. As a result, this SDK is no longer functional and this repository has been sunset. No further development, bug fixes, or support will be provided.
+>
+> Thank you to everyone who contributed to and used this project.
+
+~~[![CI/CD Pipeline](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml/badge.svg)](https://github.com/abeckDev/amadeus-dotnet-reimagined/actions/workflows/ci.yml)~~
+~~[![codecov](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined/branch/main/graph/badge.svg)](https://codecov.io/gh/abeckDev/amadeus-dotnet-reimagined)~~
 
 A modern, reimagined .NET SDK for the Amadeus Self-Service travel APIs. This project is a complete reboot of the [amadeus4dev-examples/amadeus-dotnet](https://github.com/amadeus4dev-examples/amadeus-dotnet) library, designed with modern .NET practices and enhanced functionality.
+
+> **Note**: This project is preserved for historical and educational purposes only. The underlying Amadeus Self-Service APIs are no longer available.
 
 ## 🎯 Vision
 
@@ -113,11 +123,13 @@ var options = new AmadeusClientOptions(endpoint)
     .AddPolicy(new AnotherPolicy());
 ```
 
-## 🧪 Current Status
+## 🧪 Status
 
-**Version**: 0.1.0-preview
+**Version**: 0.1.0-preview — **ARCHIVED**
 
-This is an early preview focusing on the foundational architecture. The core infrastructure is complete and includes:
+> ⚠️ This project is no longer active. The Amadeus Self-Service APIs have been retired and this repository is preserved for reference only.
+
+The core infrastructure that was implemented includes:
 
 - ✅ HTTP pipeline with policies
 - ✅ Authentication and token management
@@ -125,8 +137,6 @@ This is an early preview focusing on the foundational architecture. The core inf
 - ✅ Logging and telemetry
 - ✅ Configuration system
 - ✅ Unit tests for core components
-
-**Upcoming**: API endpoint implementations for Amadeus travel services.
 
 ## 🛠️ Development
 
@@ -185,25 +195,13 @@ To enable full CI/CD functionality, these repository secrets are available:
 
 - `CODECOV_TOKEN`: Token for uploading coverage reports to Codecov (optional)
 
-## 📋 Roadmap
+## 📋 ~~Roadmap~~ (Archived)
 
-- [ ] Complete API endpoint implementations
-- [ ] Add response model classes
-- [ ] Implement request/response serialization
-- [ ] Add more comprehensive documentation
-- [ ] Performance optimizations
-- [ ] Additional authentication methods
+This project has been archived and the roadmap is no longer being pursued. The Amadeus Self-Service APIs have been retired.
 
 ## 🤝 Contributing
 
-We welcome contributions! This project aims to provide a modern, well-architected SDK for the Amadeus APIs.
-
-### Guidelines
-
-1. Follow existing code patterns and conventions
-2. Add unit tests for new functionality
-3. Update documentation for public APIs
-4. Use conventional commit messages
+This repository is archived and no longer accepts contributions.
 
 ## 📄 License
 
